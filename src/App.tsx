@@ -29,10 +29,18 @@ import { DealsPage } from './pages/deals/DealsPage';
 
 // calendar component
 import Calendar from './components/Calendarpg/Calendar'
+
+// Calls Components
+import Audiopg from './components/calls/AudioCall'
+import Videopg from './components/calls/VideoCall'
+import Uploadpg from './components/uploadDoc/UploadDoc'
+import Signpad from './components/uploadDoc/Signpad'
+
 // Chat Pages
 import { ChatPage } from './pages/chat/ChatPage';
 
 function App() {
+  
   return (
     <AuthProvider>
       <Router>
@@ -93,7 +101,21 @@ function App() {
           </Route>
 
           {/* Calendar Route */}
-          <Route path="/calendar" element={<Calendar />} />
+
+          <Route path="/Calendar" element={<DashboardLayout />}>
+            <Route index element={<Calendar />} />
+          </Route>
+
+          {/* Calls Route */}
+          <Route path='/Videopg' element={<Videopg />} />
+          <Route path='/Audiopg' element={<Audiopg />} />
+
+          {/* upload pdf route */}
+          <Route path='/Uploadpg' element={<Uploadpg />} />
+          
+          {/* Sign pad route */}
+          <Route path='/Signpad/:id' element={<Signpad />} />
+
 
           {/* Redirect root to login */}
           <Route path="/" element={<Navigate to="/login" replace />} />
