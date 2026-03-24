@@ -39,8 +39,12 @@ import Signpad from './components/uploadDoc/Signpad'
 // Chat Pages
 import { ChatPage } from './pages/chat/ChatPage';
 
+// Payment pages
+import Payment1 from './components/payment/EntreprenuerPayment'
+import Payment2 from './components/payment/InvestorPayment'
+
 function App() {
-  
+
   return (
     <AuthProvider>
       <Router>
@@ -112,11 +116,16 @@ function App() {
 
           {/* upload pdf route */}
           <Route path='/Uploadpg' element={<Uploadpg />} />
-          
+
           {/* Sign pad route */}
           <Route path='/Signpad/:id' element={<Signpad />} />
-
-
+          {/* Payment pages route */}
+          <Route path="/Payment1" element={<DashboardLayout />}>
+            <Route index element={<Payment1 />} />
+          </Route>
+          <Route path="/Payment2" element={<DashboardLayout />}>
+            <Route index element={<Payment2 />} />
+          </Route>
           {/* Redirect root to login */}
           <Route path="/" element={<Navigate to="/login" replace />} />
 

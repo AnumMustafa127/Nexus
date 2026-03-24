@@ -3,9 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import {
   Home, Building2, CircleDollarSign, Users, MessageCircle,
-  Bell, FileText, Settings, HelpCircle
+  Bell, FileText, Settings, HelpCircle, LucideDollarSign,
+  DollarSign
 } from 'lucide-react';
-
+import Payment1 from '../payment/EntreprenuerPayment'
+import Payment2 from '../payment/InvestorPayment'
 interface SidebarItemProps {
   to: string;
   icon: React.ReactNode;
@@ -42,11 +44,13 @@ export const Sidebar: React.FC = () => {
     { to: '/messages', icon: <MessageCircle size={20} />, text: 'Messages' },
     { to: '/notifications', icon: <Bell size={20} />, text: 'Notifications' },
     { to: '/documents', icon: <FileText size={20} />, text: 'Documents' },
+    { to: '/Payment1', icon: <DollarSign size={20} />, text: 'Payments' },
   ];
-
+  
   const investorItems = [
     { to: '/dashboard/investor', icon: <Home size={20} />, text: 'Dashboard' },
     { to: '/profile/investor/' + user.id, icon: <CircleDollarSign size={20} />, text: 'My Portfolio' },
+    { to: '/Payment2', icon: <DollarSign size={20} />, text: 'Payments' },
     { to: '/entrepreneurs', icon: <Users size={20} />, text: 'Find Startups' },
     { to: '/messages', icon: <MessageCircle size={20} />, text: 'Messages' },
     { to: '/notifications', icon: <Bell size={20} />, text: 'Notifications' },
